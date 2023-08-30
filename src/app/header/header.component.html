@@ -1,0 +1,38 @@
+<div class="container-new">
+<div fxLayout="row" fxLayoutAlign="start center" [class.open-close]="is_open_close">
+  
+    <div class="logo_header" fxFlex="25">
+     <img src="assets/logo.webp" alt="Example Image" class="logo-class">
+    </div>  
+    <div class="menu_section" fxFlex="50">  
+        <nav class="headeer_nav"  [class.menu-open]="isMenuOpen">
+          
+            <ul fxLayout="row" class="menu_section" fxLayout.lt-md="column">
+              <!-- <div class="close-x" fxHide.gt-sm><span >X</span></div> -->
+              
+          <li class="home"><a routerLink="/"><span>Home</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>  
+        <li><a routerLink="/features"><span>Features</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>
+    <li><a routerLink="/about-us"><span>About Us</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>
+<li><a routerLink="/services"><span>Services</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>
+<li> <a routerLink="/blog"><span>blog</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>
+<li> <a routerLink="/contact"><span>Contacts</span></a><mat-icon class="k1" fxHide.gt-sm>keyboard_arrow_down</mat-icon></li>
+        </ul>
+          </nav>
+    </div>  
+    <div class="contact_info" fxFlex="25" fxHide.lt-md>
+    <span><mat-icon> stay_primary_portrait</mat-icon>0 (800) 123-456</span>
+    </div>  
+    <div class="mobile_cions" fxHide.gt-sm>
+        <div class="mo" fxLayout="row"  fxLayoutAlign="start center">
+          <div class="hamburger" [class.menu-close]="isClose" (click)="toggleMenu()" >
+            <div class="bars1"></div>
+            <div class="bars2"></div>
+            <div class="bars3"></div>
+          </div>
+            <span class="men1">Menu</span>
+        </div>
+    </div>
+</div>
+</div>
+
+

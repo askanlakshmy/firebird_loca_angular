@@ -1,0 +1,271 @@
+<app-header></app-header>
+<section id="task_list">
+<div class="task_list_containeer" fxLayout.lt-md="column" fxLayoutGap="10px">
+  <div class="width_card">
+    <div class="task_list_card height_change_one">
+      <div class="task_list_title">
+      <h2>Task List <span class="span_toggle" (click)="toggle()"></span></h2>
+    </div>
+    <div class="tab_new_list" *ngIf="isToggled">
+      <!-- <mat-tab-group>
+        <mat-tab *ngFor="let item of customers">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">face</mat-icon>
+            {{item.employee_name}}
+          </ng-template> -->
+       <div class="task_list_user">
+       <table>
+       <tr class="row_th">
+        <th>Name</th>
+        <th>Poject</th>
+        <th>Task</th>
+        <th>Est.Time</th>
+        <th>Start Date</th>
+        <th>Deviation Time</th>
+      </tr>
+      <tr *ngFor="let item of customers" class="new_row">
+        <td> {{item.employee_name}}</td>
+        <td> {{item.project_name}}</td>
+       <td> {{item.task_name}}</td>
+       <td>{{item.estimated_time}}</td>
+       <td> {{item.start_time | date:'shortDate' }}</td>
+       <td> {{item.deviation_time}}</td>
+      </tr>
+       </table>
+       </div>
+        <!-- </mat-tab> 
+      </mat-tab-group> -->
+      
+    </div>
+      <!-- <ul>
+        <li *ngFor="let item of customers">{{item.employee_name}}</li>
+      </ul> -->
+    </div>
+    </div>
+<div class="row_flex" fxLayout="row" fxLayout.lt-md="column" >
+    <div class="width_card">
+      <div class="task_list_card width_des height_change_one">
+        <div class="task_list_title">
+        <h2>Employee monthly status</h2>
+      </div>
+      <div class="tab_new_list">
+        <!-- <mat-tab-group>
+          <mat-tab *ngFor="let item of customers">
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">face</mat-icon>
+              {{item.employee_name}}
+            </ng-template> -->
+         <div class="task_list_user">
+         <table>
+         <tr class="row_th">
+          <th>Name</th>
+          <!-- <th>Poject</th>
+          <th>Task</th> -->
+          <th>Estimated Time</th>
+          <th>Working Hours</th>
+          <!-- <th>Deviation Time</th> -->
+        </tr>
+        <tr *ngFor="let item of employee" class="new_row">
+          <td> {{item.employee_name }}</td>
+          <!-- <td> {{item.project_name}}</td> -->
+         <td> {{item.estimated_time}}</td>
+         <td>{{item.working_hours |  number:'1.2'}}</td>
+         <!-- <td> {{item.start_time}}</td>
+         <td> {{item.deviation_time}}</td> -->
+        </tr>
+         </table>
+         </div>
+          <!-- </mat-tab> 
+        </mat-tab-group> -->
+        
+      </div>
+        <!-- <ul>
+          <li *ngFor="let item of customers">{{item.employee_name}}</li>
+        </ul> -->
+      </div>
+      </div>
+      <div class="width_card">
+        <div class="task_list_card width_des height_change_one">
+          <div class="task_list_title meeting_review">
+          <h2>Meeting Reviews</h2>
+          <div class="month_review">
+            <div class="current_month_review">
+              <button (click)="currentClick()">Current Month <mat-icon>filter_list</mat-icon></button>
+            </div>
+            <div class="upcomming_review">
+              <button (click)="quarterly()">Quarterly <mat-icon>filter_list</mat-icon></button>
+            </div>
+          </div>
+        </div>
+        <div class="tab_new_list">
+          <!-- <mat-tab-group>
+            <mat-tab *ngFor="let item of customers">
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">face</mat-icon>
+                {{item.employee_name}}
+              </ng-template> -->
+           <div class="task_list_user">
+           <table>
+           
+           <tr class="row_th">
+            <th>Name</th>
+            <th>Month</th>
+          </tr>
+          <div *ngIf="showLoader" class="loader">Loading...</div>
+          <tr *ngFor="let item of review" class="new_row">
+            
+            <td> {{item.employee_name}}</td>
+            <td> {{item.quarterly_end_month | date:'MMMM'}}</td>
+          </tr>
+           </table>
+           </div>
+            <!-- </mat-tab> 
+          </mat-tab-group> -->
+          
+        </div>
+          <!-- <ul>
+            <li *ngFor="let item of customers">{{item.employee_name}}</li>
+          </ul> -->
+        </div>
+        </div>
+      </div>
+        <div class="width_card">
+          <div class="task_list_card height_change_two">
+            <div class="task_list_title">
+            <h2>Productivity</h2>
+          </div>
+          <div class="tab_new_list">
+             <div class="task_list_user">
+              <table>
+                <tr class="row_th">
+                  <th class="l1">Lead Name</th>
+                  <!-- <th>AM</th> -->
+                  <th class="l2">Employee Name</th>
+                  <th class="l3">Total Hours</th>
+                  <th class="l4">Working Hours</th>
+                  <th class="l5">Project Timing Type</th>
+                </tr>
+              </table>
+             <table>
+             <!-- <tr class="row_th">
+              <th>Lead Name</th>
+              <th>Employee Name</th>
+              <th>Total Hours</th>
+              <th>Working Hours</th>
+              <th>Project Timing Type</th>
+            </tr> -->
+            <div class="nn">
+            <tr *ngFor="let item of productivity" class="new_row">
+            <td class="admin_name">{{item.admin}}</td>
+            <td class="emp_name"><p *ngFor="let name of item.project_employees" class="{{name.charAt(0) | uppercase}}" mat-raised-button matTooltip={{name}}>{{name.charAt(0)}}</p></td>  
+            <td class="to_hrs"> {{item.total_hours}}</td>
+             <td class="wks_hrs"> {{item.working_hours |  number:'1.2'}}</td>
+             <td class="pro_type"> {{item.project_timing_type}}</td>
+            </tr>
+          </div>
+             </table>
+             </div>
+            
+          </div>
+
+          </div>
+          </div>
+  </div>
+</section>
+  <section id="about_new">
+    <div class="container">
+      <div class="about_infor" fxLayout="row" fxLayout.lt-md="column">
+        <div class="left_about" fxFlex="60">
+          <div class="small-content">
+          <span class="small_text red_color">ABOUT COMPANY</span>
+          <h2 class="title_h"><b>Small Business</b> Loans<br>
+            For a Daily Expenses</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat</p>
+              <div class="link">
+              <a href=""><span class="link_title"><span class="span_before">Discover More</span></span></a>
+              </div>
+            </div>
+        </div>
+        <div class="rigt_about" fxFlex="40">
+          <img src="assets/abt-img.jpeg">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="services_five">
+    <div class="flex_server" fxLayout="row">
+    <div class="serv_hover" fxFlex="20">
+      <div class="image_services">
+        <img src="assets/serv1.jpeg">
+        <div class="overlay_o"></div>
+      </div>
+      <div class="servics_content">
+        <div class="content_inner">
+          <span> 01</span>
+          <h3><a href="">Baby and Adoption</a></h3>
+          <div class="content"><p>A new baby is such a treasure. But with the cost of life spiraling</p></div>
+          <a href="" class="simple_btn">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="serv_hover" fxFlex="20">
+      <div class="image_services">
+        <img src="assets/serv2.jpeg">
+        <div class="overlay_o"></div>
+      </div>
+      <div class="servics_content">
+        <div class="content_inner">
+          <span> 02</span>
+          <h3><a href="">Home Improvement</a></h3>
+          <div class="content"><p>Shower your home with a home improvement loan</p></div>
+          <a href="" class="simple_btn">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="serv_hover" fxFlex="20">
+      <div class="image_services">
+        <img src="assets/serv3.jpeg">
+        <div class="overlay_o"></div>
+      </div>
+      <div class="servics_content">
+        <div class="content_inner">
+          <span> 03</span>
+          <h3><a href="">Small Business</a></h3>
+          <div class="content"><p>The best idea for the first time new business and enough time</p></div>
+          <a href="" class="simple_btn">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="serv_hover" fxFlex="20">
+      <div class="image_services">
+        <img src="assets/serv4.jpeg">
+        <div class="overlay_o"></div>
+      </div>
+      <div class="servics_content">
+        <div class="content_inner">
+          <span> 04</span>
+          <h3><a href="">Studying Abroad</a></h3>
+          <div class="content"><p>Student loans may be offered as part of a total package</p></div>
+          <a href="" class="simple_btn">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div class="serv_hover" fxFlex="20">
+      <div class="image_services">
+        <img src="assets/serv4.jpeg">
+        <div class="overlay_o"></div>
+      </div>
+      <div class="servics_content">
+        <div class="content_inner">
+          <span> 05</span>
+          <h3><a href="">Travels and Vacation</a></h3>
+          <div class="content"><p>Found a trip of your dream? We can make it come true</p></div>
+          <a href="" class="simple_btn">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

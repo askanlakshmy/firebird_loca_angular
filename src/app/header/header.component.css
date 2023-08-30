@@ -1,0 +1,196 @@
+.logo-class{
+    max-height: 35px;
+    margin-top: 1em;
+}
+.headeer_nav span{
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    color: #1e1d22;
+}
+.headeer_nav a{
+    padding:12px 18px;
+    position: relative;
+}
+.headeer_nav a:before{
+content: "/";
+display: inline;
+position: absolute;
+left: -2px;
+font-size: 10px;
+top: 12px;
+}
+/* nav.headeer_nav a:first-child:before {
+    display: none !important;
+} */
+nav.headeer_nav {
+    text-align: center;
+}
+.contact_info span {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 200;
+    color: #535458;
+    font-size:15px;
+}
+.container-new {
+    padding: 0 2%;
+}
+a{
+    text-decoration: none;
+}
+/* nav.headeer_nav a{
+display: inline-flex;
+padding-top: 10px;
+padding-bottom: 5px;
+overflow: hidden;
+}
+nav.headeer_nav a:before{
+left: 0;
+bottom: 0;
+width: 100%;
+height: 2px;
+background: #492059;
+transform: translateX(-100%);
+} */
+li{list-style: none;}
+li.home a:before {
+    display: none !important;
+}
+#menu-toggler {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%,-50%);
+    z-index: 2;
+    transition: all .7s ease;
+}
+#menu-toggler div {
+    width: 30px;
+    height: 2px;
+    background: #af1e23;
+    margin: 5px;
+    transition: all .3s ease;
+}
+@media screen and (max-width:992px){
+    .hamburger {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        z-index: 2;
+        transition: all .7s ease;
+    }
+    .hamburger div {
+        width: 30px;
+        height: 2px;
+        background: #fff;
+        margin: 5px;
+        transition: all .3s ease;
+    }
+   .headeer_nav {
+        position: fixed;
+        background: #000;
+        width: 100%;
+        z-index: 999999;
+        left: 0;
+        opacity: 0;
+        top: 51px;
+    height: 100%;
+    }
+    .container-new {
+        padding: 0 !important;
+    }
+    .mobile_cions {
+        width: 60%;
+        padding: 10px;
+        background-color: #1e1d22;
+        color: #fff;
+    }
+    .mo {
+        justify-content: center !important;
+    }
+    .mo span {
+        margin-left: 5px;
+    }
+    img.logo-class {
+        padding-top: 10%;
+        padding-left: 10px;
+        margin-top: 0 !important;
+    }
+    ul.menu_section.menu-open {
+        opacity: 1;
+    }
+   ul.menu_section li a span {
+        color: #fff !important;
+    }
+    .headeer_nav a:before{
+        display:none;
+    }
+    .hamburger.menu-close .bars2 {
+        transition: all 0s ease;
+        width: 0;
+    }
+    .hamburger.menu-close .bars1 {
+        transform: rotate(-45deg) translate(-5px,4px);
+        background: #fff;
+    }
+    .hamburger.menu-close .bars3 {
+        transform: rotate(45deg) translate(-5px,-5px);
+        background: #fff;
+    }
+    .open-close {
+        background: #000;
+    }
+    nav.headeer_nav.menu-open{
+        opacity: 1;
+    }
+    .open-close .mobile_cions {
+        background: 000;
+    }
+    .hamburger.menu-close .bars1, .hamburger.menu-close .bars3 {
+        width: 20px !important;
+    }
+    .open-close span.men1 {
+        display: none;
+    }
+    .open-close .mo{
+        justify-content: end !important;
+    }
+    ul.menu_section {
+        padding-left: 0 !important;
+    }
+    .k1{
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        padding: 0.25em;
+        text-align: center;
+        background-color: rgba(255,255,255,.1);
+        -webkit-transition: all ease .3s;
+        -moz-transition: all ease .3s;
+        -ms-transition: all ease .3s;
+        -o-transition: all ease .3s;
+        transition: all ease .3s;
+        background-color: rgba(255,255,255,.2);
+    }
+    ul.menu_section li {
+        padding: 20px 0px !important;
+        position: relative;
+    }
+    .k1 {
+        display: inline-block;
+        position: absolute;
+        float: right;
+        left: 0;
+        right: 26px;
+        margin-left: auto;
+    }
+}
